@@ -86,7 +86,7 @@ namespace Ass5OOP05
         }
     }
     #endregion
-    #region Q3
+    #region Q 3
     interface INotificationService
     {
         void SendNotification(string recipient, string message);
