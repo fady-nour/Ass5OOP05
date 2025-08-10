@@ -34,6 +34,15 @@
 
             }
             #endregion
+            #region Q3
+            INotificationService email = new EmailNotificationService();
+            INotificationService sms = new SmsNotificationService();
+            INotificationService push = new PushNotificationService();
+
+            email.SendNotification("FAdy@nn.com", "Hello via Email!");
+            sms.SendNotification("0123456789", "Hello via SMS!");
+            push.SendNotification("fady123", "Hello via Push Notification!");
+            #endregion
         }
     }
 }

@@ -8,7 +8,8 @@ namespace Ass5OOP05
 {
     #region Q1
     internal interface IShape
-    { double Area { get; }
+    {
+        double Area { get; }
         void DisplayShapeInfo();
 
     }
@@ -59,13 +60,13 @@ namespace Ass5OOP05
     #region Q2
     interface IAuthenticationService
     {
-        bool AuthenticateUser(string Username,string Password);
-        bool AuthorizeUser(string Username,string Role);
+        bool AuthenticateUser(string Username, string Password);
+        bool AuthorizeUser(string Username, string Role);
     }
     public class BasicAuthenticationService : IAuthenticationService
     {
-        string username {  get; set; }
-        string passeord {  get; set; }
+        string username { get; set; }
+        string passeord { get; set; }
         string role { get; set; }
         public BasicAuthenticationService(string username, string passeord, string role)
         {
@@ -75,9 +76,9 @@ namespace Ass5OOP05
         }
         public bool AuthenticateUser(string Username, string Password)
         {
-           return Username == username && Password ==Password;
+            return Username == username && Password == Password;
         }
-     
+
 
         public bool AuthorizeUser(string Username, string Role)
         {
@@ -85,4 +86,34 @@ namespace Ass5OOP05
         }
     }
     #endregion
+    #region Q3
+    interface INotificationService
+    {
+        void SendNotification(string recipient, string message);
+    }
+    public class EmailNotificationService : INotificationService
+    {
+        public void SendNotification(string recipient, string message)
+        {
+            Console.WriteLine($"[Email] To: {recipient} | Message: {message}");
+        }
+    }
+
+    public class SmsNotificationService : INotificationService
+    {
+        public void SendNotification(string recipient, string message)
+        {
+            Console.WriteLine($"[SMS] To: {recipient} | Message: {message}");
+        }
+    }
+
+    public class PushNotificationService : INotificationService
+    {
+        public void SendNotification(string recipient, string message)
+        {
+            Console.WriteLine($"[Push Notification] To: {recipient} | Message: {message}");
+        }
+    }
+    #endregion
 }
+
