@@ -56,4 +56,33 @@ namespace Ass5OOP05
         }
     }
     #endregion
+    #region Q2
+    interface IAuthenticationService
+    {
+        bool AuthenticateUser(string Username,string Password);
+        bool AuthorizeUser(string Username,string Role);
+    }
+    public class BasicAuthenticationService : IAuthenticationService
+    {
+        string username {  get; set; }
+        string passeord {  get; set; }
+        string role { get; set; }
+        public BasicAuthenticationService(string username, string passeord, string role)
+        {
+            this.username = username;
+            this.passeord = passeord;
+            this.role = role;
+        }
+        public bool AuthenticateUser(string Username, string Password)
+        {
+           return Username == username && Password ==Password;
+        }
+     
+
+        public bool AuthorizeUser(string Username, string Role)
+        {
+            return Username == username && Role == role;
+        }
+    }
+    #endregion
 }
